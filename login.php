@@ -1,6 +1,7 @@
 <?php
 session_start();//session starts here
-
+require ('src/index.php');
+use NanoGas\Modules\Connection\Mysql;
 ?>
 <html>
 <head lang="en">
@@ -33,7 +34,7 @@ session_start();//session starts here
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="">
                             </div>
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login" >
+                            <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login" >
                         </fieldset>
                     </form>
                 </div>
@@ -48,9 +49,7 @@ session_start();//session starts here
 </html>
 
 <?php
-
-include("database/db_conection.php");
-
+$conn = Mysql::getInstance();
 if(isset($_POST['login']))
 {
     $user_email=$_POST['email'];
@@ -58,7 +57,7 @@ if(isset($_POST['login']))
 
     $check_user="select * from users WHERE user_email='$user_email'AND user_pass='$user_pass'";
 
-    $run=mysqli_query($dbcon,$check_user);
+    $run = $conn->getQueryCli()->run($check_user)->getLastQueryCli();
 
     if(mysqli_num_rows($run))
     {
