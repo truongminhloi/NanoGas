@@ -1,6 +1,6 @@
 <?php
 
-namespace NanoGas\Modules\Product;
+namespace NanoGas\Modules\Gift;
 
 use NanoGas\Modules\Connection\MysqlFetchRow;
 
@@ -11,7 +11,7 @@ use NanoGas\Modules\Connection\MysqlFetchRow;
  * Date: 07/03/2021
  * Time: 13:57
  */
-class ProductFetchRow extends MysqlFetchRow
+class GiftFetchRow extends MysqlFetchRow
 {
 
     public function fetchRows()
@@ -19,18 +19,18 @@ class ProductFetchRow extends MysqlFetchRow
         $rows = $this->fetch();
         $products = [];
         foreach ($rows as $row) {
-            $product = new ProductDto($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+            $product = new GiftDto($row[0], $row[1], $row[2], $row[3], $row[4]);
             array_push($products, $product);
         }
         return $products;
     }
 
-    public function fetchRow(): ProductDto
+    public function fetchRow(): GiftDto
     {
         $rows = $this->fetch();
 
         foreach ($rows as $row) {
-            $product = new ProductDto($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+            $product = new GiftDto($row[0], $row[1], $row[2], $row[3], $row[4]);
             return $product;
         }
         return null;
