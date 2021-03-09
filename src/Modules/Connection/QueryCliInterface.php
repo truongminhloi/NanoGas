@@ -7,7 +7,7 @@ use NanoGas\Modules\Product\ProductFetchRow;
 interface QueryCliInterface
 {
 
-    public function run(string $query);
+    public function run(string $query): MysqlQueryCli;
 
     public function getProductFetchRow(): ProductFetchRow;
 

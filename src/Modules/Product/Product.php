@@ -16,8 +16,6 @@ class Product extends ProductAbstract
     public static function getProducts()
     {
         $query = "select * from product where visible = " . self::STATUS_ACTIVE;
-        $mysqlCli = Mysql::getInstance()->getQueryCli();
-        $mysqlCli->run($query);
-        return $mysqlCli->getProductFetchRow()->fetchRows();
+        return Mysql::getInstance()->getQueryCli()->run($query)->getProductFetchRow()->fetchRows();
     }
 }
