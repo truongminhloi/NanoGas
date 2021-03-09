@@ -4,9 +4,6 @@ require ('./src/index.php');
 use NanoGas\Modules\Product\Product;
 use NanoGas\Modules\Product\ProductDto;
 /** @var ProductDto $product */
-foreach (Product::getProducts() as $product){
-    var_dump($product->getName());
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -291,19 +288,27 @@ foreach (Product::getProducts() as $product){
 
             <div class="clearfix"></div>
 
-            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="team-thumb">
-                    <img src="images/person1.jpg" class="img-responsive" alt="Team">
+                    <img src="images/person.jpg" class="img-responsive" alt="Team">
                     <div class="team-des">
                         <h3>Trương Minh Lợi</h3>
-                        <h4>Người sáng lập</h4>
+                        <h4>Đồng sáng lập</h4>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+			<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
                 <div class="team-thumb">
-                    <img src="images/person2.jpg" class="img-responsive" alt="Team">
+                    <img src="images/person.jpg" class="img-responsive" alt="Team">
+                    <div class="team-des">
+                        <h3>Lê Hữu Sơn</h3>
+                        <h4>Đồng sáng lập</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="team-thumb">
+                    <img src="images/person.jpg" class="img-responsive" alt="Team">
                     <div class="team-des">
                         <h3>Phạm Thế Hiển</h3>
                         <h4>Giám Đốc Điều Hành</h4>
@@ -311,9 +316,9 @@ foreach (Product::getProducts() as $product){
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
                 <div class="team-thumb">
-                    <img src="images/person3.jpg" class="img-responsive" alt="Team">
+                    <img src="images/person.jpg" class="img-responsive" alt="Team">
                     <div class="team-des">
                         <h3>Hoàng Trọng Minh</h3>
                         <h4>Giám Đốc Sản Xuất</h4>
@@ -463,7 +468,7 @@ foreach (Product::getProducts() as $product){
     <div class="container ">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAJifc7pwvUkN0yrtn7BPn8I-lRg33PSNc&center=10.75,106.6666667&zoom=11&maptype=satellite" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=HCM+(Nanogas)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form contact-form">
