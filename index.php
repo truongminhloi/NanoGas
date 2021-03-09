@@ -1,6 +1,7 @@
 <?php
 require ('./src/index.php');
 
+
 use NanoGas\Modules\Product\Product;
 use NanoGas\Modules\Product\ProductDto;
 /** @var ProductDto $product */
