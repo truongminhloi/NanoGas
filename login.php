@@ -50,7 +50,7 @@ if(isset($_POST['login']))
 
     $check_user="select * from users WHERE user_email='$user_email'AND user_pass='$user_pass'";
 
-    $run = $conn->getQueryCli()->run($check_user)->getLastQueryCli();
+    $run = $conn->getQueryCli()->run($check_user);
 
     if(mysqli_num_rows($run))
     {

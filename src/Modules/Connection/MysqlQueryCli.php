@@ -27,13 +27,13 @@ class MysqlQueryCli implements QueryCliInterface
         return $this->lastQueryCli;
     }
 
-    public function run(string $query): self
+    public function run(string $query)
     {
         $this->lastQueryCli = mysqli_query($this->connection, $query);
-        return $this;
+        return $this->lastQueryCli;
     }
 
-    public function getProductFetchRow()
+    public function getProductFetchRow(): ProductFetchRow
     {
         return new ProductFetchRow($this->lastQueryCli);
     }
