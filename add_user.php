@@ -3,15 +3,15 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css">
-    <title>Đăng ký</title>
+    <title>Đăng ký tài khoản</title>
 </head>
-<body style="margin:10%;">
+<body style="margin:10%; background-image: url('images/bg.jpg');">
 <div class="container">
     <div class="row">
         <div class="">
             <div class="login-panel panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Đăng ký</h3>
+                    <h3 class="panel-title">Đăng ký tài khoản</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="add_user.php">
