@@ -3,18 +3,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css">
-    <title>Thêm user</title>
+    <title>Đăng ký</title>
 </head>
-<style>
-    .login-panel {
-        margin-top: 150px;
-
-</style>
-<body>
-
-<div class="container"><!-- container class is used to centered  the body of the browser with some decent width-->
-    <div class="row"><!-- row class is used for grid system in Bootstrap-->
-        <div class="col-md-4 col-md-offset-4"><!--col-md-4 is used to create the no of colums in the grid also use for medimum and large devices-->
+<body style="margin:10%;">
+<div class="container">
+    <div class="row">
+        <div class="">
             <div class="login-panel panel panel-success">
                 <div class="panel-heading">
                     <h3 class="panel-title">Đăng ký</h3>
@@ -25,20 +19,17 @@
                             <div class="form-group">
                                 <input class="form-control" placeholder="Họ và tên" name="name" type="text" autofocus>
                             </div>
-
                             <div class="form-group">
                                 <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="">
                             </div>
-
-
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Đăng ký" name="add_user" >
 
                         </fieldset>
                     </form>
-                    <center><b>Bạn đã có tài khoản ?</b> <br></b><a href="login.php">Đăng nhập</a></center><!--for centered text-->
+                    <center><b>Bạn đã có tài khoản ?</b> <br></b><a href="login.php">Đăng nhập</a></center>
                 </div>
             </div>
         </div>

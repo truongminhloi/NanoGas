@@ -7,23 +7,15 @@ use NanoGas\Modules\Connection\Mysql;
 <head lang="en">
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css">
-    <title>Login</title>
+    <title>Đăng nhập</title>
 </head>
-<style>
-    .login-panel {
-        margin-top: 150px;
-
-</style>
-
-<body>
-
-
+<body style="margin:10%;">
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-success">
+        <div class="">
+            <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sign In</h3>
+                    <h3 class="panel-title">Đăng nhập</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="login.php">
@@ -37,6 +29,7 @@ use NanoGas\Modules\Connection\Mysql;
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login" >
                         </fieldset>
                     </form>
+					<center><b>Bạn đã chưa có tài khoản ?</b> <br></b><a href="add_user.php">Đăng ký</a></center>
                 </div>
             </div>
         </div>
