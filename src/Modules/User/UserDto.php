@@ -16,7 +16,7 @@ class UserDto
     private $user_pass;
     private $user_email;
 
-    public function __construct(int $id, string $user_name, string $user_pass, string $user_email)
+    public function __construct(int $id, string $user_name, string $user_pass = null, string $user_email= null)
     {
         $this->id = $id;
         $this->user_name = $user_name;

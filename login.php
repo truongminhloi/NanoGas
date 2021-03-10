@@ -1,5 +1,4 @@
 <?php
-session_start();//session starts here
 require ('src/index.php');
 use NanoGas\Modules\Connection\Mysql;
 ?>

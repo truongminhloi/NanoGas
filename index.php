@@ -4,7 +4,8 @@ require ('./src/index.php');
 
 use NanoGas\Modules\Product\Product;
 use NanoGas\Modules\Product\ProductDto;
-/** @var ProductDto $product */
+use NanoGas\Modules\Connection\Mysql;
+$user = Mysql::getInstance()->getConnection()->getSession()->getUser();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +74,14 @@ use NanoGas\Modules\Product\ProductDto;
                 <li><a href="#gallery" class="smoothScroll">Quà Tặng</a></li>
                 <li><a href="#store" class="smoothScroll">Cửa hàng</a></li>
                 <li><a href="#contact" class="smoothScroll">Liên lạc</a></li>
-                <li><a href="login.php" class="smoothScroll">Đăng nhập</a></li>
+                <?php
+                    if(empty($user)){
+                        echo '<li><a href="login.php" class="smoothScroll">Đăng nhập</a></li>';
+                        return;
+                    }
+                    echo "<li><a href='#' class='smoothScroll'>".$user->getUserName()."</a></li>";
+                ?>
+
             </ul>
         </div>
     </div>

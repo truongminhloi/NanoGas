@@ -17,11 +17,13 @@ class Connection
 {
 
     private $db = null;
-    private $user = null;
+    /** @var Session $session */
+    private $session = null;
 
     public function __construct()
     {
         $this->db = mysqli_connect("localhost", "root", "Qwe321@!");
+        $this->session = new Session();
     }
 
     /**
@@ -33,22 +35,17 @@ class Connection
     }
 
     /**
-     * @return null
+     * @return Session
      */
-    public function getUser()
+    public function getSession(): Session
     {
-        return $this->user;
-    }
-
-    public function setUser($user)
-    {
-        $this->user = $user;
+        return $this->session;
     }
 
     public function login($user_name, $pass_word): UserDto
     {
         $model = User::findUserNameAndPass($user_name, $pass_word);
-        $this->setUser($model);
+        $this->session->setUser($model);
         return $model;
     }
 
