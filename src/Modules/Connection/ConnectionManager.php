@@ -14,9 +14,10 @@ use NanoGas\Modules\Modules;
 abstract class ConnectionManager extends Modules
 {
 
+    /** @var  Connection */
     protected $connection;
 
-    public function getConnection()
+    public function getConnection(): Connection
     {
         return $this->connection;
     }

@@ -22,9 +22,9 @@ class Mysql extends ConnectionManager
 
     public function __construct()
     {
-        $this->connection = mysqli_connect("localhost", "root", "Qwe321@!");
-        $this->mysqlQueryCli = new MysqlQueryCli($this->connection);
-        mysqli_select_db($this->connection, "project_nano");
+        $this->connection = new Connection();
+        $this->mysqlQueryCli = new MysqlQueryCli($this->connection->getDb());
+        mysqli_select_db($this->connection->getDb(), "project_nano");
     }
 
     public static function getInstance()
