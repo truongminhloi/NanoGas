@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . '/autoload.php';
 
 $model = \NanoGas\Modules\Product\Product::getProducts();
