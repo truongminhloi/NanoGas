@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$model = \NanoGas\Modules\Store\Store::findStore(1);
-$model->update('Cửa Hàng Số 1', '268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM', '010-0230-040', 1);
+$model = \NanoGas\Modules\Product\Product::getProducts();
+var_dump($model);
+$model = \NanoGas\Modules\Product\Product::findStore(1);
+$model->update('EIF gas', 'Đỏ', 'Thép', 15,290000.00,1,'/images/gallery-img1.jpg');
 ?>

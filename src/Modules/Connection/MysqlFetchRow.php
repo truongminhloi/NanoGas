@@ -26,6 +26,10 @@ abstract class MysqlFetchRow
         return mysqli_fetch_all($this->mysqlQueryCli);
     }
 
+    abstract public function fetchRows();
+
+    abstract public function fetchRow();
+
 }
 
 
