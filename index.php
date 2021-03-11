@@ -68,9 +68,12 @@ use NanoGas\Modules\Connection\Mysql;
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
 			    <?php
+				if(!empty($_SESSION))
+				{
                     if($_SESSION['email'] == 'admin@gmail.com'){
                         echo '<li><a href="admin.php" class="smoothScroll">Admin</a></li>';
                     }
+				}
                 ?>
                 <li><a href="#top" class="smoothScroll">Trang chủ</a></li>
                 <li><a href="#feature" class="smoothScroll">Đặc trưng</a></li>
@@ -80,13 +83,14 @@ use NanoGas\Modules\Connection\Mysql;
                 <li><a href="#store" class="smoothScroll">Cửa hàng</a></li>
                 <li><a href="#contact" class="smoothScroll">Liên lạc</a></li>
                 <?php
-                    if(!isset($_SESSION['email'])){
-                        echo '<li><a href="login.php" class="smoothScroll">Đăng nhập</a></li>';
-                    }
-                    else
-					{
-						 echo '<li><a href="logout.php" class="smoothScroll">'.$_SESSION['email'].'</a></li>';
-					}
+				if(empty($_SESSION))
+				{
+                    echo '<li><a href="login.php" class="smoothScroll">Đăng nhập</a></li>';
+                }
+                else
+				{
+					echo '<li><a href="logout.php" class="smoothScroll">'.$_SESSION['email'].'</a></li>';
+				}
                 ?>
             </ul>
         </div>
