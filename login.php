@@ -1,6 +1,6 @@
 <?php
-require ('src/index.php');
-use NanoGas\Modules\Connection\Mysql;
+  require ('src/index.php');
+  use NanoGas\Modules\Connection\Mysql;
 ?>
 <html>
 <head lang="en">
@@ -8,7 +8,7 @@ use NanoGas\Modules\Connection\Mysql;
     <link type="text/css" rel="stylesheet" href="bootstrap-3.2.0-dist\css\bootstrap.css">
     <title>Đăng nhập</title>
 </head>
-<body style="margin:10%;">
+<body style="margin:10%;background-image: url('images/bg.jpg');">
 <div class="container">
     <div class="row">
         <div class="">
@@ -53,7 +53,7 @@ if(isset($_POST['login']))
     {
         echo "<script>window.open('index.php','_self')</script>";
 
-        $_SESSION['email']=$user_email;//here session is used and value of $user_email store in $_SESSION.
+        $_SESSION['email']=$user_email;
 
     }
     else

@@ -32,6 +32,9 @@
                                 <input class="form-control" placeholder="Giá" name="price" type="text" value="">
                             </div>
 							<div class="form-group">
+                                <input class="form-control" placeholder="Đường dẫn hình ảnh" name="image" type="text" value="">
+                            </div>
+							<div class="form-group">
                                 <input class="form-control" placeholder="Trạng thái" name="visible" type="text" value="">
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Đăng ký" name="add_gift" >
@@ -58,8 +61,8 @@ if(isset($_POST['add_gift']))
     $gift_weight=$_POST['weight'];
     $gift_price=$_POST['price'];
     $gift_visible=$_POST['visible'];
-
-
+    $gift_image=$_POST['image'];
+	
     if($gift_name=='')
     {
         echo"<script>alert('Vui lòng điền tên sản phẩm')</script>";
@@ -94,7 +97,7 @@ if(isset($_POST['add_gift']))
         echo"<script>alert('Vui lòng điền trạng thái)</script>";
 		exit();
     }
-    $insert_gift="insert into gift (name,color,material,weight,price,visible) VALUE ('$gift_name','$gift_color','$gift_material','$gift_weight','$gift_price','$gift_visible')";
+    $insert_gift="insert into gift (name,color,material,weight,price,visible,image) VALUE ('$gift_name','$gift_color','$gift_material','$gift_weight','$gift_price','$gift_visible','$gift_image')";
     mysqli_query($dbcon,$insert_gift);
 	header( "Location: gift_management.php" );
 }

@@ -28,8 +28,8 @@
 						</thead>
 						<?php
 							include("database/db_conection.php");
-							$view_users_query="select * from store";
-							$run=mysqli_query($dbcon,$view_users_query);
+							$query="select * from store";
+							$run=mysqli_query($dbcon,$query);
 
 							while($row=mysqli_fetch_array($run))
 							{

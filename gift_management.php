@@ -24,14 +24,15 @@
 								<th scope="col" class="text-center">Chất liệu</th>
 								<th scope="col" class="text-center">Cân nặng</th>
 								<th scope="col" class="text-center">Giá</th>
+								<th scope="col" class="text-center">Đường dẫn hình ảnh</th>
 								<th scope="col" class="text-center">Trạng thái</th>
 								<th scope="col"> </th>
 							</tr>
 						</thead>
 						<?php
 							include("database/db_conection.php");
-							$view_users_query="select * from gift";
-							$run=mysqli_query($dbcon,$view_users_query);
+							$query="select * from gift";
+							$run=mysqli_query($dbcon,$query);
 
 							while($row=mysqli_fetch_array($run))
 							{
@@ -41,7 +42,9 @@
 								$gift_material=$row[3];
 								$gift_weight=$row[4];
 								$gift_price=$row[5];
-								$gift_visible=$row[6];
+								$gift_image=$row[6];
+								$gift_category_id=$row[7];
+								$gift_visible=$row[8];
 
 						?>
 						<tr>
@@ -57,6 +60,8 @@
 								<?php echo $gift_weight;  ?></td>
 							<td scope="row" class="text-center">
 								<?php echo $gift_price;  ?></td>
+							<td scope="row" class="text-center">
+								<?php echo $gift_image;  ?></td>
 							<td scope="row" class="text-center">
 								<?php echo $gift_visible;  ?></td>
 							<td scope="row" class="text-center">

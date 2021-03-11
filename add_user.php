@@ -35,26 +35,22 @@
         </div>
     </div>
 </div>
-
 </body>
-
 </html>
-
 <?php
 
-include("database/db_conection.php");//make connection here
+include("database/db_conection.php");
 if(isset($_POST['add_user']))
 {
-    $user_name=$_POST['name'];//here getting result from the post array after submitting the form.
-    $user_pass=$_POST['pass'];//same
-    $user_email=$_POST['email'];//same
+    $user_name=$_POST['name'];
+    $user_pass=$_POST['pass'];
+    $user_email=$_POST['email'];
 
 
     if($user_name=='')
     {
-        //javascript use for input checking
         echo"<script>alert('Please enter the name')</script>";
-exit();//this use if first is not work then other will not show
+exit();
     }
 
     if($user_pass=='')
@@ -68,7 +64,6 @@ exit();
         echo"<script>alert('Please enter the email')</script>";
     exit();
     }
-//here query check weather if user already registered so can't register again.
     $check_email_query="select * from users WHERE user_email='$user_email'";
     $run_query=mysqli_query($dbcon,$check_email_query);
 
@@ -77,7 +72,6 @@ exit();
 echo "<script>alert('Email $user_email is already exist in our database, Please try another one!')</script>";
 exit();
     }
-//insert the user into the database.
     $insert_user="insert into users (user_name,user_pass,user_email) VALUE ('$user_name','$user_pass','$user_email')";
     if(mysqli_query($dbcon,$insert_user))
     {
@@ -85,5 +79,4 @@ exit();
     }
 
 }
-
 ?>

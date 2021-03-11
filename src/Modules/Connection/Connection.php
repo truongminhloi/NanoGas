@@ -22,7 +22,7 @@ class Connection
 
     public function __construct()
     {
-        $this->db = mysqli_connect("localhost", "root", "Qwe321@!");
+        $this->db = mysqli_connect("localhost", "root", "");
         $this->session = new Session();
     }
 

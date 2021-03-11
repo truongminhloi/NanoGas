@@ -74,7 +74,7 @@ if(isset($_POST['add_store']))
         echo"<script>alert('Vui lòng điền trạng thái')</script>";
 		exit();
     }
-    $insert_store="insert into store (name,address,phone,visible) VALUE ('$store_name','$store_address','$store_phone','$store_visible')";
+    $insert_store="insert into store (name,address,phone_number,visible) VALUE ('$store_name','$store_address','$store_phone','$store_visible')";
     mysqli_query($dbcon,$insert_store);
 	header( "Location: store_management.php" );
 }

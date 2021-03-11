@@ -32,6 +32,9 @@
                                 <input class="form-control" placeholder="Giá" name="price" type="text" value="">
                             </div>
 							<div class="form-group">
+                                <input class="form-control"  placeholder="Đường dẫn hình ảnh" name="image" type="text" value="">
+                            </div>
+							<div class="form-group">
                                 <input class="form-control" placeholder="Trạng thái" name="visible" type="text" value="">
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Đăng ký" name="add_product" >
@@ -58,7 +61,7 @@ if(isset($_POST['add_product']))
     $product_weight=$_POST['weight'];
     $product_price=$_POST['price'];
     $product_visible=$_POST['visible'];
-
+    $product_image=$_POST['image'];
 
     if($product_name=='')
     {
@@ -91,10 +94,10 @@ if(isset($_POST['add_product']))
 
     if($product_visible=='')
     {
-        echo"<script>alert('Vui lòng điền trạng thái vật liệu')</script>";
+        echo"<script>alert('Vui lòng điền trạng thái')</script>";
 		exit();
     }
-    $insert_product="insert into product (name,color,material,weight,price,visible) VALUE ('$product_name','$product_color','$product_material','$product_weight','$product_price','$product_visible')";
+    $insert_product="insert into product (name,color,material,weight,price,visible,image) VALUE ('$product_name','$product_color','$product_material','$product_weight','$product_price','$product_visible','$product_image')";
     mysqli_query($dbcon,$insert_product);
 	header( "Location: product_management.php" );
 }
