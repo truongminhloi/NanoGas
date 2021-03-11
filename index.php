@@ -197,94 +197,68 @@ use NanoGas\Modules\Connection\Mysql;
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-12">
-                <div class="media wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img1.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">EIF gas</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Thép</p>
-                        <p>Trọng lượng : 15 Kg</p>
-                        <p>Giá : 290.000vnd</p>
-                    </div>
-                </div>
-
-                <div class="media wow fadeInUp" data-wow-delay="0.9s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img2.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">Total Gas</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Composit</p>
-                        <p>Trọng lượng : 13 Kg</p>
-                        <p>Giá : 320.000vnd</p>
-                    </div>
-                </div>
-
-                <div class="media wow fadeInUp" data-wow-delay="1.2s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img3.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">Nam Gas</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Composit</p>
-                        <p>Trọng lượng : 13 Kg</p>
-                        <p>Giá : 320.000vnd</p>
-                    </div>
-                </div>
+				<div class="col-md-6 col-sm-12">
+				<?php
+					include("database/db_conection.php");
+					$query="select * from product where visible = 0 limit 3";
+					$run=mysqli_query($dbcon,$query);
+					while($row=mysqli_fetch_array($run))
+					{
+						$product_id=$row[0];
+						$product_name=$row[1];
+						$product_color=$row[2];
+						$product_material=$row[3];
+						$product_weight=$row[4];
+						$product_price=$row[5];
+						$product_visible=$row[6];
+						$product_image=$row[7];
+					?>
+						<div class="media wow fadeInUp" data-wow-delay="0.6s">
+						<div class="media-object pull-left">
+							<img src="<?php echo $product_image ?>" class="img-responsive" alt="Food Menu">
+							<span class="menu-image"></span>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading"><?php echo $product_name ?></h3>
+							<p>Màu sắc : <?php echo $product_color ?></p>
+							<p>Loại vỏ : <?php echo $product_material ?></p>
+							<p>Trọng lượng : <?php echo $product_weight ?> Kg</p>
+							<p>Giá : <?php echo $product_price ?> vnd</p>
+						</div>
+					</div>
+				<?php } ?>
             </div>
-
-            <div class="col-md-6 col-sm-12">
-                <div class="media wow fadeInUp" data-wow-delay="1s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img4.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">LP Petrol</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Composit</p>
-                        <p>Trọng lượng : 13 Kg</p>
-                        <p>Giá : 320.000vnd</p>
-                    </div>
-                </div>
-
-                <div class="media wow fadeInUp" data-wow-delay="1.3s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img5.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">Petrol Limex</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Composit</p>
-                        <p>Trọng lượng : 13 Kg</p>
-                        <p>Giá : 320.000vnd</p>
-                    </div>
-                </div>
-
-                <div class="media wow fadeInUp" data-wow-delay="1.6s">
-                    <div class="media-object pull-left">
-                        <img src="images/gallery-img6.jpg" class="img-responsive" alt="Food Menu">
-                        <span class="menu-image"></span>
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">Thủ Đức Gas</h3>
-                        <p>Màu sắc : Đỏ</p>
-                        <p>Loại vỏ : Composit</p>
-                        <p>Trọng lượng : 13 Kg</p>
-                        <p>Giá : 320.000vnd</p>
-                    </div>
-                </div>
+			<div class="col-md-6 col-sm-12">
+				<?php
+					include("database/db_conection.php");
+					$query="select * from product where visible = 0 limit 3,3";
+					$run=mysqli_query($dbcon,$query);
+					while($row=mysqli_fetch_array($run))
+					{
+						$product_id=$row[0];
+						$product_name=$row[1];
+						$product_color=$row[2];
+						$product_material=$row[3];
+						$product_weight=$row[4];
+						$product_price=$row[5];
+						$product_visible=$row[6];
+						$product_image=$row[7];
+					?>
+						<div class="media wow fadeInUp" data-wow-delay="0.6s">
+						<div class="media-object pull-left">
+							<img src="<?php echo $product_image ?>" class="img-responsive" alt="Food Menu">
+							<span class="menu-image"></span>
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading"><?php echo $product_name ?></h3>
+							<p>Màu sắc : <?php echo $product_color ?></p>
+							<p>Loại vỏ : <?php echo $product_material ?></p>
+							<p>Trọng lượng : <?php echo $product_weight ?> Kg</p>
+							<p>Giá : <?php echo $product_price ?> vnd</p>
+						</div>
+					</div>
+				<?php } ?>
             </div>
-
         </div>
     </div>
 </section>
@@ -382,93 +356,49 @@ use NanoGas\Modules\Connection\Mysql;
                     </ul>
 
                     <!-- iso box section -->
-                    <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="iso-box-section wow fadeInUp" data-wow-delay="0.6s">
                         <div class="iso-box-wrapper col4-iso-box">
-
-                            <div class="iso-box gasStove col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift1.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift1.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Bếp gas mini</h3>
-                            </div>
-
-                            <div class="iso-box gasStove col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift2.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift2.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Bếp đôi</h3>
-                            </div>
-
-                            <div class="iso-box householdAppliances col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift3.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift3.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Bộ chén dĩa</h3>
-                            </div>
-
-                            <div class="iso-box Spice col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift4.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift4.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Nước tương</h3>
-                            </div>
-
-                            <div class="iso-box Spice col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift5.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift5.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Bột ngọt</h3>
-                            </div>
-
-                            <div class="iso-box Spice col-md-4 col-sm-6">
-                                <div class="gallery-thumb">
-                                    <a href="images/gift6.jpg" data-lightbox-gallery="food-gallery">
-                                        <img src="images/gift6.jpg" class="fluid-img" alt="Gallery">
-                                        <div class="gallery-overlay">
-                                            <div class="gallery-item">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <h3>Dầu ăn</h3>
-                            </div>
-
+							<?php
+								include("database/db_conection.php");
+								$query="select * from gift where visible = 0 limit 6";
+								$run=mysqli_query($dbcon,$query);
+								while($row=mysqli_fetch_array($run))
+								{
+									$gift_id=$row[0];
+									$gift_name=$row[1];
+									$gift_color=$row[2];
+									$gift_material=$row[3];
+									$gift_weight=$row[4];
+									$gift_price=$row[5];
+									$gift_image=$row[6];
+									$gift_category_id=$row[7];
+									$gift_visible=$row[8];
+									
+								if($gift_category_id == 1)
+								{
+									echo '<div class="iso-box gasStove col-md-4 col-sm-6">';
+								}
+								elseif($gift_category_id == 2)
+								{
+									echo '<div class="iso-box householdAppliances col-md-4 col-sm-6">';
+								}
+								else{
+									echo '<div class="iso-box Spice col-md-4 col-sm-6">';
+								}
+							?>
+									<div class="gallery-thumb">
+										<a href="<?php echo $gift_image ?>" data-lightbox-gallery="food-gallery">
+											<img src="<?php echo $gift_image ?>" class="fluid-img" alt="Gallery">
+											<div class="gallery-overlay">
+												<div class="gallery-item">
+													<i class="fa fa-search"></i>
+												</div>
+											</div>
+										</a>
+									</div>
+									<h3><?php echo $gift_name ?></h3>
+								</div>
+							<?php } ?>
                         </div>
                     </div>
 
@@ -498,18 +428,26 @@ use NanoGas\Modules\Connection\Mysql;
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td scope="row">Cửa Hàng Số 1</td>
-                            <td scope="row">268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM</td>
-                            <td scope="row">010-0230-040</td>
+						<?php
+							include("database/db_conection.php");
+							$query="select * from store where visible = 0 limit 5";
+							$run=mysqli_query($dbcon,$query);
+							$i = 1;
+							while($row=mysqli_fetch_array($run))
+							{
+								$store_id=$row[0];
+								$store_name=$row[1];
+								$store_address=$row[2];
+								$store_phone=$row[3];
+								$store_visible=$row[4];
+							?>
+						<tr>
+                            <td scope="row"><?php echo $i++?></td>
+                            <td scope="row"><?php echo $store_name?></td>
+                            <td scope="row"><?php echo $store_address?></td>
+                            <td scope="row"><?php echo $store_phone?></td>
                         </tr>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td scope="row">Cửa Hàng Số 1</td>
-                            <td scope="row">268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM</td>
-                            <td scope="row">010-0230-040</td>
-                        </tr>
+						<?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -519,26 +457,27 @@ use NanoGas\Modules\Connection\Mysql;
 </section>
 <!-- Contact section -->
 <section id="contact" class="parallax-section">
+<form role="form" method="post" action="feedback.php">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
                     <h2>Gửi phản hồi</h2>
                     <h4>Chúng tôi luôn sẵn sàng phục vụ bạn!</h4>
                 </div>
-                <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                <div class="contact-form wow fadeInUp" data-wow-delay="0.6s">
                     <form id="contact-form" method="post" action="#">
                         <input name="name" type="text" class="form-control" placeholder="Họ và tên" required>
                         <input name="email" type="email" class="form-control" placeholder="Email" required>
                         <textarea name="message" class="form-control" placeholder="Nội dung" rows="5" required></textarea>
-                        <input type="submit" class="form-control submit" value="Gửi">
+                        <input type="submit" class="form-control submit" value="Gửi" name="feedback">
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
+</form>
 </section>
 
 <!-- Footer section -->
@@ -546,7 +485,7 @@ use NanoGas\Modules\Connection\Mysql;
     <div class="container">
         <div class="row">
 
-            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
+            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
                 <h3>Mạng xã hội</h3>
                 <ul class="social-icons">
                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -556,14 +495,14 @@ use NanoGas\Modules\Connection\Mysql;
                 </ul>
             </div>
 
-            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
+            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
                 <h3>Chi tiết liên hệ</h3>
                 <p>268 Lý Thường Kiệt, Phường 14, Quận 10, Thành phố Hồ Chí Minh</p>
                 <p>010-0230-040</p>
                 <p>ltweb-bachkhoa@hcmut.com</p>
             </div>
 
-            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.9s">
+            <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
                 <h3>Giờ mở cửa</h3>
                 <strong>Thứ 2 - Thứ 7</strong>
                 <p>07:00 - 22:00</p>

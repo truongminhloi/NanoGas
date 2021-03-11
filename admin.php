@@ -46,6 +46,12 @@
 											<a href="store_management.php">Quản lý cửa hàng</a>
 										</td>
 									</tr>
+									<tr>
+										<td scope="row">5</td>
+										<td scope="row">
+											<a href="feedback_management.php">Quản lý phản hồi</a>
+										</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>

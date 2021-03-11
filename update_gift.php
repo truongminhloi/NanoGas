@@ -51,7 +51,7 @@
 									<input class="form-control" placeholder="Giá" name="price" type="text" value="<?php echo (isset($gift_price))?$gift_price:'';?>">
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="Đường dẫn hình ảnh" name="visible" type="text" value="<?php echo (isset($gift_image))?$gift_image:'';?>">
+									<input class="form-control" placeholder="Đường dẫn hình ảnh" name="image" type="text" value="<?php echo (isset($gift_image))?$gift_image:'';?>">
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Trạng thái" name="visible" type="text" value="<?php echo (isset($gift_visible))?$gift_visible:'';?>">
@@ -74,6 +74,7 @@
 include("database/db_conection.php");
 if(isset($_POST['update_gift']))
 {
+	$gift_id=$_POST['id'];
     $gift_name=$_POST['name'];
     $gift_color=$_POST['color'];
     $gift_material=$_POST['material'];
@@ -117,6 +118,7 @@ if(isset($_POST['update_gift']))
 		exit();
     }
 	$update_gift="UPDATE gift SET name ='$gift_name',color ='$gift_color',material ='$gift_material',weight ='$gift_weight',price ='$gift_price',visible ='$gift_visible',image ='$gift_image' WHERE id =$gift_id ";
+	echo $update_gift;
 	mysqli_query($dbcon,$update_gift);
 	header( "Location: gift_management.php" );
 }
