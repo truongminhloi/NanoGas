@@ -1,5 +1,4 @@
 <?php
-session_start();//session starts here
 require ('src/index.php');
 use NanoGas\Modules\Connection\Mysql;
 ?>
@@ -48,11 +47,9 @@ if(isset($_POST['login']))
     $user_email=$_POST['email'];
     $user_pass=$_POST['pass'];
 
-    $check_user="select * from users WHERE user_email='$user_email'AND user_pass='$user_pass'";
+    $check_user = $conn->getConnection()->login($user_email, $user_pass);
 
-    $run = $conn->getQueryCli()->run($check_user)->getLastQueryCli();
-
-    if(mysqli_num_rows($run))
+    if(!empty($check_user))
     {
         echo "<script>window.open('index.php','_self')</script>";
 

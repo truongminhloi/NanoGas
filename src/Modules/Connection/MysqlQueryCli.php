@@ -8,8 +8,11 @@
 
 namespace NanoGas\Modules\Connection;
 
+use NanoGas\Modules\Gift\GiftFetchRow;
 use NanoGas\Modules\Modules;
 use NanoGas\Modules\Product\ProductFetchRow;
+use NanoGas\Modules\Store\StoreFetchRow;
+use NanoGas\Modules\User\UserFetchRow;
 
 class MysqlQueryCli implements QueryCliInterface
 {
@@ -33,9 +36,24 @@ class MysqlQueryCli implements QueryCliInterface
         return $this;
     }
 
-    public function getProductFetchRow()
+    public function getProductFetchRow(): ProductFetchRow
     {
         return new ProductFetchRow($this->lastQueryCli);
+    }
+
+    public function getStoreFetchRow(): StoreFetchRow
+    {
+        return new StoreFetchRow($this->lastQueryCli);
+    }
+
+    public function getGiftFetchRow(): GiftFetchRow
+    {
+        return new GiftFetchRow($this->lastQueryCli);
+    }
+
+    public function getUserFetchRow(): UserFetchRow
+    {
+        return new UserFetchRow($this->lastQueryCli);
     }
 
 }
