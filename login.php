@@ -1,6 +1,9 @@
 <?php
   require ('src/index.php');
   use NanoGas\Modules\Connection\Mysql;
+  if(!empty(Mysql::getInstance()->getConnection()->getSession()->getUser())) {
+      header('Location:/index.php');
+  }
 ?>
 <html>
 <head lang="en">

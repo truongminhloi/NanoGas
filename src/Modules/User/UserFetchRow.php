@@ -27,7 +27,7 @@ class UserFetchRow extends MysqlFetchRow
         return $products;
     }
 
-    public function fetchRow(): UserDto
+    public function fetchRow(): ?UserDto
     {
         $rows = $this->fetch();
 

@@ -32,7 +32,7 @@ class User extends UserAbstract
         return new self(Mysql::getInstance()->getQueryCli()->run($query)->getUserFetchRow()->fetchRow());
     }
 
-    public static function findUserNameAndPass($user_name, $pass_word): UserDto
+    public static function findUserNameAndPass($user_name, $pass_word): ?UserDto
     {
         $query = "select * from `users` where user_email = '$user_name' and user_pass = '$pass_word' limit 1";
         return Mysql::getInstance()->getQueryCli()->run($query)->getUserFetchRow()->fetchRow();
