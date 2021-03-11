@@ -1,183 +1,134 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 09, 2021 at 10:37 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.27
+/*
+ Navicat Premium Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+ Source Server         : mac local
+ Source Server Type    : MySQL
+ Source Server Version : 100508
+ Source Host           : localhost:3306
+ Source Schema         : project_nano
 
+ Target Server Type    : MySQL
+ Target Server Version : 100508
+ File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ Date: 10/03/2021 08:39:26
+*/
 
---
--- Database: `project_nano`
---
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `gift`
---
-
+-- ----------------------------
+-- Table structure for gift
+-- ----------------------------
+DROP TABLE IF EXISTS `gift`;
 CREATE TABLE `gift` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `color` varchar(255) DEFAULT NULL,
-  `material` varchar(255) DEFAULT NULL,
-  `weight` double DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `visible` tinyint(255) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `image` varchar(255) DEFAULT NULL,
+  `gift_category_id` int(11) NOT NULL,
+  `visible` tinyint(255) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `gift`
---
-
-INSERT INTO `gift` (`id`, `name`, `color`, `material`, `weight`, `price`, `visible`) VALUES
-(1, 'Bếp gas mini', 'Đỏ', 'Thép', 1, '150000.00', 1),
-(2, 'Bếp đôi', 'Đỏ', 'Thép', 1, '150000.00', 1),
-(3, 'Bộ chén dĩa', 'Đỏ', 'Composit', 1, '150000.00', 1),
-(4, 'Nước tương', 'Đỏ', 'Composit', 1, '150000.00', 1),
-(5, 'Bột ngọt', 'Đỏ', 'Composit', 1, '150000.00', 1),
-(6, 'Dầu ăn', 'Đỏ', 'Composit', 1, '150000.00', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product`
---
-
-CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `color` varchar(255) DEFAULT NULL,
-  `material` varchar(255) DEFAULT NULL,
-  `weight` double DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `visible` tinyint(255) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `name`, `color`, `material`, `weight`, `price`, `visible`) VALUES
-(1, 'EIF gas', 'Đỏ', 'Thép', 15, '290000.00', 1),
-(2, 'LP Petrol', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(3, 'Petrol Limex', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(4, 'Nam Gas', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(5, 'Thủ Đức Gas', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(6, 'Nam Gas', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(7, 'Thủ Đức Gas', 'Đỏ', 'Composit', 13, '320000.00', 1),
-(9, 'asda', 'sadasd', 'asdasd', 0, '120000.00', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `store`
---
-
-CREATE TABLE `store` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `visible` tinyint(255) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `store`
---
-
-INSERT INTO `store` (`id`, `name`, `address`, `phone`, `visible`) VALUES
-(8, 'Cửa Hàng Số 1', '268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM', '010-0230-040', 1),
-(9, 'Cửa Hàng Số 1', '268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM', '010-0230-040', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_pass` varchar(50) NOT NULL,
-  `user_email` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `user_name`, `user_pass`, `user_email`) VALUES
-(4, 'truong-minh-loi', '123456', 'loitruongminhit@gmail.com');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `gift`
---
-ALTER TABLE `gift`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `store`
---
-ALTER TABLE `store`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `gift`
---
-ALTER TABLE `gift`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `product`
---
-ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `store`
---
-ALTER TABLE `store`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+-- ----------------------------
+-- Records of gift
+-- ----------------------------
+BEGIN;
+INSERT INTO `gift` VALUES (1, 'Bếp gas mini', '/images/gift1.jpg', 1, 1);
+INSERT INTO `gift` VALUES (2, 'Bếp đôi', '/images/gift2.jpg', 1, 1);
+INSERT INTO `gift` VALUES (3, 'Bộ chén dĩa', '/images/gift3.jpg', 2, 1);
+INSERT INTO `gift` VALUES (4, 'Nước tương', '/images/gift4.jpg', 3, 1);
+INSERT INTO `gift` VALUES (5, 'Bột ngọt', '/images/gift5.jpg', 3, 1);
+INSERT INTO `gift` VALUES (6, 'Dầu ăn', '/images/gift6.jpg', 3, 1);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Table structure for gift_category
+-- ----------------------------
+DROP TABLE IF EXISTS `gift_category`;
+CREATE TABLE `gift_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `visible` tinyint(255) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of gift_category
+-- ----------------------------
+BEGIN;
+INSERT INTO `gift_category` VALUES (1, 'BẾP GAS', 1);
+INSERT INTO `gift_category` VALUES (2, 'ĐỒ DÙNG GIA ĐÌNH', 1);
+INSERT INTO `gift_category` VALUES (3, 'GIA VỊ', 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for product
+-- ----------------------------
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `material` varchar(255) DEFAULT NULL,
+  `weight` double DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `visible` tinyint(255) NOT NULL DEFAULT 1,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of product
+-- ----------------------------
+BEGIN;
+INSERT INTO `product` VALUES (1, 'EIF gas', 'Đỏ', 'Thép', 15, 290000.00, 1, '/images/gallery-img1.jpg');
+INSERT INTO `product` VALUES (2, 'LP Petrol', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/gallery-img2.jpg');
+INSERT INTO `product` VALUES (3, 'Petrol Limex', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/gallery-img3.jpg');
+INSERT INTO `product` VALUES (4, 'Nam Gas', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/gallery-img4.jpg');
+INSERT INTO `product` VALUES (5, 'Thủ Đức Gas', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/gallery-img5.jpg');
+INSERT INTO `product` VALUES (6, 'Nam Gas', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/gallery-img6.jpg');
+INSERT INTO `product` VALUES (7, 'Thủ Đức Gas', 'Đỏ', 'Composit', 13, 320000.00, 1, '/images/favicon.jpg');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for store
+-- ----------------------------
+DROP TABLE IF EXISTS `store`;
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `visible` tinyint(255) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of store
+-- ----------------------------
+BEGIN;
+INSERT INTO `store` VALUES (1, 'Cửa Hàng Số 1', '268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM', '010-0230-040', 1);
+INSERT INTO `store` VALUES (2, 'Cửa Hàng Số 2', '268 Lý Thường Kiệt, P.14, Quận 10, TP.HCM', '	010-0230-040', 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) NOT NULL,
+  `user_pass` varchar(50) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+BEGIN;
+INSERT INTO `users` VALUES (3, 'Trương Minh Lợi', '123456', 'loitruongminhit@gmail.com');
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;
